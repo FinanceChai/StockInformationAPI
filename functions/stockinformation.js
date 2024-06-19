@@ -5,11 +5,9 @@ const cheerio = require('cheerio');
 const app = express();
 const router = express.Router();
 
-const { getLastFridayOrNonHolidayDate, dateToUnixTimestampPlusADay, dateToUnixTimestamp, formatDateToMatchApiArgument } = require('./helpers.js');
-
 const headers = {
     'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Mobile Safari/537.36',
-}
+};
 
 router.get('/', (req, res) => {
     res.json('Welcome to the cryptocurrency funding rates API');
@@ -64,7 +62,8 @@ app.use((req, res, next) => {
     }
 });
 
-app.use('/.netlify/functions/cryptoinfo', router);
+// Note the change here to match the expected path in your Netlify deployment
+app.use('/', router);
 
 module.exports.handler = serverless(app);
 
