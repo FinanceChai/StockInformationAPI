@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "netlify-lambda serve netlify/functions",
-    "build": "netlify-lambda build netlify/functions"
+    "start": "netlify-lambda serve src/functions",
+    "build": "netlify-lambda build src/functions"
   },
   "dependencies": {
     "axios": "^0.21.1",
