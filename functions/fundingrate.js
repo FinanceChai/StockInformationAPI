@@ -62,7 +62,6 @@ app.use((req, res, next) => {
     }
 });
 
-// Note the change here to match the expected path in your Netlify deployment
 app.use('/', router);
 
 module.exports.handler = serverless(app);
